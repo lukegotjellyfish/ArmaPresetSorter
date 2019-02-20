@@ -1,7 +1,7 @@
 class stripper:
     def strip_header():
-        start = 1449
-        end = -149
+        start = 1449 #end of header
+        end = -149 #start of footer
         with open("Arma.html", "r", encoding='utf-8') as modfile:
             contents = modfile.readlines()
             header = ''.join(contents)[:start] + "\n"
