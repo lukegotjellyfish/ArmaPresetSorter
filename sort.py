@@ -8,7 +8,7 @@ class stripper:
             footer = ''.join(contents)[end:]
 
 
-            #get lines
+            #Get lines past the header
             i = 1
             mods = []
             for line in contents:
@@ -19,7 +19,7 @@ class stripper:
                     continue
                 i += 1
                 
-            #now get mod lines
+            #Get the lines with the <tr> for each mod (exactly the same upto the mod name)
             mod_array = []
             mod_lines = ""
             i = 1
@@ -29,11 +29,11 @@ class stripper:
                     mod_array.append(mod_lines)
                     mod_lines = ""
                 i += 1
-
+            #Sort the array by character value
             mod_array_new = sorted(mod_array) #sorted mods "alphabetically"
             sorted_mods = header + ''.join(mod_array_new) + footer
-            
             return sorted_mods
 
 with open("Sorted_Preset.html", "w", encoding='utf-8') as mods_writefile:
     mods_writefile.write(str(stripper.strip_header()))
+    #Write the sorted array into a file that works as a preset
