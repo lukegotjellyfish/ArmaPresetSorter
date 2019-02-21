@@ -23,9 +23,10 @@ class stripper:
             mod_array = []
             mod_lines = ""
             i = 1
+            local = 0
             for item in mods:
                 mod_lines += item
-                if i%9 == 0: #ignores footer, gets lines for mods into an array
+                if item == "        </tr>\n":
                     mod_array.append(mod_lines)
                     mod_lines = ""
                 i += 1
@@ -36,4 +37,5 @@ class stripper:
 
 with open("Sorted_Preset.html", "w", encoding='utf-8') as mods_writefile:
     mods_writefile.write(str(stripper.strip_header()))
+    print("dun")
     #Write the sorted array into a file that works as a preset
