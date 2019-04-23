@@ -1,11 +1,10 @@
 def strip_header():
-    start = 1449 #end of header
+    start = 1447 #end of header
     end = -149 #start of footer
     with open("Arma.html", "r", encoding='utf-8') as modfile:
         contents = modfile.readlines()
         header = ''.join(contents)[:start] + "\n"
         footer = ''.join(contents)[end:]
-
 
         #Get lines past the header
         i = 1
@@ -34,7 +33,8 @@ def strip_header():
         sorted_mods = header + ''.join(mod_array_new) + footer
         return sorted_mods
 
+
+#Write the sorted array into a file that works as a preset
 with open("Sorted_Preset.html", "w", encoding='utf-8') as mods_writefile:
     mods_writefile.write(strip_header())
-    print("dun")
-    #Write the sorted array into a file that works as a preset
+x = input("Done")
